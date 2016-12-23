@@ -1,4 +1,4 @@
-# weicantimes
+# honour
 
 > A Vue.js project
 
