@@ -1,18 +1,38 @@
-# weicantimes
+# 开发日志
 
-> A Vue.js project
-
-## Build Setup
+### 安装
 
 ``` bash
+
 # install dependencies
-npm install
+cnpm install
 
 # serve with hot reload at localhost:8080
 npm run dev
 
-# build for production with minification
-npm run build
+# start server at localhost:8090
+cd server
+node xxxx.js
+
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 技术栈
+  
+  此demo在实现上使用了以下技术
+  - vue
+  - vuex
+  - vue-cli
+  - vue-router
+  - v-tap
+  - mui
+  - webpack-zepto
+  - fastclick
+  - layer
+
+### 第一天
+
+> 制定计划，调整心情，安排时间，搭建环境，明确需求，确定目标，面向实现，化繁为简，完成搭建，上传github，择日再战，视死如归 
+
+### 第二天
+
+> 使用Mui分别开发出login、index、menu、desk、balance 五大核心界面
