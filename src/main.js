@@ -1,11 +1,21 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './pages/App'
+/* 加载项目需要的全局css和js */
+require('css/mui.min.css') 
+require('css/common.css')
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  template: '<App/>',
-  components: { App }
-})
+
+import Vue from 'vue'
+import vueTap from 'v-tap'; 		 	//支持手机端和Pc端的点击事件
+import fastclick from 'fastclick'	 	//解决手机端 click 点击延迟
+import zepto from 'webpack-zepto' 	 	//jquery、zepto
+import store from './vuex/store'	 	// vuex相关
+import router from './router'		 	//路由相关
+
+
+window.$ = zepto   					   //zepto
+window.router = router;				   //路由文件
+window.mui = require('js/mui.min.js')  //UI框架的核心js
+
+const app = new Vue({
+	router,
+	store
+}).$mount('#app')

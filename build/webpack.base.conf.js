@@ -1,4 +1,4 @@
-var path = require('path')
+  var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
@@ -26,7 +26,14 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'css': path.resolve(__dirname, '../src/assets/css'),
+      'js': path.resolve(__dirname, '../src/assets/js'), 
+      'ico': path.resolve(__dirname, '../src/assets/ico/iconfont.css'),
+      'getters':path.resolve(__dirname,'../src/vuex/getters'),
+      'actions':path.resolve(__dirname,'../src/vuex/actions'),
+      'store':path.resolve(__dirname,'../src/vuex/store'),
+      'methods':path.resolve(__dirname,'../src/methods')
     }
   },
   resolveLoader: {

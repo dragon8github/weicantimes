@@ -1,4 +1,7 @@
 <template>
+	<div>
+		balance
+	</div>
 </template>
 
 <script>

@@ -7,11 +7,11 @@ Vue.use(VueRouter)
 /*  配置路由规则 */
 const map = [
 
-	/* 主页与重定向 */
-	{path:'/index',redirect: '/'},{path:'/',component:require('./pages/index')}, 
-
 	/* login */
 	{path:'/login',component:require('./pages/login')},
+
+	/* index */
+	{path:'/index',redirect: '/'},{path:'/',component:require('./pages/index')}, 
 
 	/* desk */
 	{path:'/desk',component:require('./pages/desk')},

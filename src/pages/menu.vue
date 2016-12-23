@@ -1,4 +1,7 @@
 <template>
+	<div>
+		menu
+	</div>
 </template>
 
 <script>
