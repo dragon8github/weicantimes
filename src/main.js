@@ -1,6 +1,7 @@
 /* 加载项目需要的全局css和js */
 require('css/mui.min.css') 
 require('css/common.css')
+require('ico')
 
 
 import Vue from 'vue'
@@ -10,12 +11,19 @@ import zepto from 'webpack-zepto' 	 	//jquery、zepto
 import store from './vuex/store'	 	// vuex相关
 import router from './router'		 	//路由相关
 
-
+window.zepto = zepto;
 window.$ = zepto   					   //zepto
 window.router = router;				   //路由文件
 window.mui = require('js/mui.min.js')  //UI框架的核心js
+
+
 
 const app = new Vue({
 	router,
 	store
 }).$mount('#app')
+
+
+/* Christmas */
+require("js/Christmas");
+$(document).snowfall({round : true, minSize: 2, maxSize:4}); // add rounded

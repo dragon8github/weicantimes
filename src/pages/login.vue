@@ -29,4 +29,22 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.mui-login {
+    position: absolute;
+    top: 12%;
+    left: 20px;
+    right: 20px;
+}
+.mui-logo {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 15%;
+    background-image: url(../assets/images/logo.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    font-size: 0;
+    color: #fff;
+  
+}
+
 </style>
