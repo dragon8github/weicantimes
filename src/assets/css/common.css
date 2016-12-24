@@ -1,5 +1,7 @@
-body{
+body,#app{
 	background-color:#fff;
+	height: 100vh;
+	overflow: hidden;
 }
 li{
 	list-style: none;
