@@ -65,7 +65,6 @@ export default {
 .banner{
 	background:url("../assets/images/banner.jpg") no-repeat center center / cover;
 	width:100%;
-	height:30%;
 	min-height: 300px;	
 	position:relative;
 }

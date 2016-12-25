@@ -2,109 +2,113 @@
 	<div>
 		<div id="desk--bakcground"></div>
 		<div id="desk-inner">
-				<ul class="mui-table-view">
-				    <li class="mui-table-view-cell">
-				        <a class="mui-navigate-right">Number of Guests
-		        	    <span class="not-function mui-badge mui-badge-danger">Please Choose</span>
-				        </a>
-				    </li>
-				 </ul>  
-				 <div class="floor-ico">
-			 		<span><i class="iconfont icon-user iconfont-eated"></i><span class="floor-ico-text">Eated</span></span>
-			 		<span><i class="iconfont icon-lock iconfont-seize"></i><span class="floor-ico-text">Seize</span></span>
-			 		<span><i class="iconfont icon-yuding iconfont-destine"></i><span class="floor-ico-text">Destine</span></span>
-			 		<span><i class="iconfont icon-tuijian iconfont-recommended"></i><span class="floor-ico-text">Recommended</span></span>
-			 	</div>
-				 <div class="floor floor-1">
-					 	<div class="floor-text">First Floor</div>
-				 		<ul class="floor-tables-ul">
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">A01</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">A02</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">A03</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">A04</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">A05</p>
-				 			</li>
-				 		</ul>
-				 </div> 
-				  <div class="floor floor-2">
-					 	<div class="floor-text">Second Floor</div>
-				 		<ul class="floor-tables-ul">
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">B01</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">B02</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">B03</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 		</ul>
-				 </div> 
-				  <div class="floor floor-1">
-					 	<div class="floor-text">Third Floor</div>
-				 		<ul class="floor-tables-ul">
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">C01</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">C02</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">C03</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">C05</p>
-				 			</li>
-				 		</ul>
-				 </div> 
-				  <div class="floor floor-1">
-					 	<div class="floor-text">Four Floor</div>
-				 		<ul class="floor-tables-ul">
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">D01</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">D02</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">D03</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">D04</p>
-				 			</li>
-				 			<li class="floor-tables-ul-li">
-				 				<div class="floor-tables-ul-li-div"></div>
-				 				<p class="floor-tables-ul-li-p">D05</p>
-				 			</li>
-				 		</ul>
-				 </div> 
-			 </div>
+		    <div class="mui-scroll-wrapper">
+                <div class="mui-scroll">
+					<ul class="mui-table-view">
+					    <li class="mui-table-view-cell">
+					        <a class="mui-navigate-right">Number of Guests
+			        	    <span class="not-function mui-badge mui-badge-danger">Please Choose</span>
+					        </a>
+					    </li>
+					 </ul>  
+					 <div class="floor-ico">
+				 		<span><i class="iconfont icon-user iconfont-eated"></i><span class="floor-ico-text">Eated</span></span>
+				 		<span><i class="iconfont icon-lock iconfont-seize"></i><span class="floor-ico-text">Seize</span></span>
+				 		<span><i class="iconfont icon-yuding iconfont-destine"></i><span class="floor-ico-text">Destine</span></span>
+				 		<span><i class="iconfont icon-tuijian iconfont-recommended"></i><span class="floor-ico-text">Recommended</span></span>
+				 	</div>
+					 <div class="floor floor-1">
+						 	<div class="floor-text">First Floor</div>
+					 		<ul class="floor-tables-ul">
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">A01</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">A02</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">A03</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">A04</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">A05</p>
+					 			</li>
+					 		</ul>
+					 </div> 
+					  <div class="floor floor-2">
+						 	<div class="floor-text">Second Floor</div>
+					 		<ul class="floor-tables-ul">
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">B01</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">B02</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">B03</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 		</ul>
+					 </div> 
+					  <div class="floor floor-1">
+						 	<div class="floor-text">Third Floor</div>
+					 		<ul class="floor-tables-ul">
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">C01</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">C02</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">C03</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">C05</p>
+					 			</li>
+					 		</ul>
+					 </div> 
+					  <div class="floor floor-1">
+						 	<div class="floor-text">Four Floor</div>
+					 		<ul class="floor-tables-ul">
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">D01</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">D02</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">D03</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">D04</p>
+					 			</li>
+					 			<li class="floor-tables-ul-li">
+					 				<div class="floor-tables-ul-li-div"></div>
+					 				<p class="floor-tables-ul-li-p">D05</p>
+					 			</li>
+					 		</ul>
+					 </div> 
+				 </div>
+				  </div> 
+				 </div>
 	 </div>
 </template>
 
@@ -117,6 +121,13 @@ export default {
     return {
 
     };
+  },
+  created () {
+  	 mui.ready(function(){
+		mui('.mui-scroll-wrapper').scroll({
+		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		});
+	 })
   }
 };
 </script>
@@ -209,5 +220,7 @@ ul{
     font-size: 15px;
 	color: #fff;
 }
-
+.mui-table-view-cell>a:not(.mui-btn).mui-active{
+	background: #ccc;
+}
 </style>
