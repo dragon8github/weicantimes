@@ -1,0 +1,33 @@
+[
+	{
+		"key":"First Floor",
+		"value":[{"num":"4","name":"A01","state":"0","startTIme":"","endTIme":""},
+				 {"num":"8","name":"A02","state":"1","startTIme":"","endTIme":""},
+				 {"num":"5","name":"A03","state":"2","startTIme":"","endTIme":""},
+				 {"num":"2","name":"A04","state":"3","startTIme":"","endTIme":""},
+				 {"num":"1","name":"A05","state":"3","startTIme":"","endTIme":""}
+				]
+	},
+	{
+		"key":"Second Floor",
+		"value":[{"num":"4","name":"B01","state":"3","startTIme":"","endTIme":""},
+				 {"num":"8","name":"B02","state":"3","startTIme":"","endTIme":""},
+				 {"num":"5","name":"B03","state":"3","startTIme":"","endTIme":""}
+				]
+	},
+	{
+		"key":"Third Floor",
+		"value":[{"num":"4","name":"C01","state":"3","startTIme":"","endTIme":""},
+				 {"num":"8","name":"C02","state":"3","startTIme":"","endTIme":""},
+				 {"num":"5","name":"C03","state":"3","startTIme":"","endTIme":""}
+				]
+	},
+	{
+		"key":"Four Floor",
+		"value":[{"num":"4","name":"D01","state":"3","startTIme":"","endTIme":""},
+				 {"num":"8","name":"D02","state":"3","startTIme":"","endTIme":""},
+				 {"num":"5","name":"D03","state":"3","startTIme":"","endTIme":""},
+				 {"num":"2","name":"D04","state":"3","startTIme":"","endTIme":""}				
+				]
+	}
+]

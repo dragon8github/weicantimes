@@ -2,7 +2,7 @@
 require('css/mui.min.css') 
 require('css/common.css')
 require('ico')
-
+require("./api");
 
 import Vue from 'vue'
 import vueTap from 'v-tap'; 		 	//支持手机端和Pc端的点击事件
@@ -11,6 +11,7 @@ import zepto from 'webpack-zepto' 	 	//jquery、zepto
 import store from './vuex/store'	 	// vuex相关
 import router from './router'		 	//路由相关
 
+Vue.use(vueTap);
 window.zepto = zepto;
 window.$ = zepto   					   //zepto
 window.router = router;				   //路由文件
@@ -24,6 +25,8 @@ const app = new Vue({
 }).$mount('#app')
 
 
+
 /* Christmas */
 require("js/Christmas");
 $(document).snowfall({round : true, minSize: 2, maxSize:4}); // add rounded
+

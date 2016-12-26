@@ -1,31 +1,12 @@
 (function(){
+
     var wct = window.wct = window.wct || {};
+
+    wct.host = "http://localhost:8090";
     
-    wct.Api = {
-        'login': '/ajax/login',
-        'logout': '/ajax/logout',
-        'index': '/ajax/shopInfo',
-        'desk': '/ajax/desk',
-        'deskInfo': '/ajax/getDeskOrder',
-        'place': '/ajax/modSeat',
-        'cancelDesk': '/ajax/cancelSeat',
-        'clean': '/ajax/clearDesk',
-        'changeDesk': '/ajax/changeDesk',
-        'changePeople': '/ajax/changePeople',
-        'dash': '/ajax/dish.html',
-        'detail': '/ajax/menuDetail',
-        'makeOrder': '/ajax/makeOrder',
-        'waitOrder': '/ajax/waitOrder',
-        'addOrder': '/ajax/addDish',
-        'getOrder': '/ajax/getOrder',
-        'statements': '/ajax/statements',
-        'deleteDish': '/ajax/deleteDish',
-        'addOneDish': '/ajax/addOneDish',
-        'getDiscount': '/ajax/getDiscount',
-        'pay': '/ajax/pay',
-        'discount': '/ajax/discount',
-        'orderCheck': '/ajax/orderCheck',
-        'credit': '/ajax/credit',
+    wct.api = {
+       'menu':'/ajax/menu/',
+       'desk':'/ajax/desk/'
     };
 
     wct.AjaxGet = function(api,callback){

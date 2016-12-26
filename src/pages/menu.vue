@@ -11,12 +11,12 @@
     	<!-- menu for left -->
         <div class="mui-col-xs-3">
             <div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
-                <a class="mui-control-item" 
-                   v-for="(item,index) in items"
+                <a class="mui-control-item"                    	
+                   v-for="(item,index) in items" 
+                   v-tap="{ methods:scrollToCategory}"
                    :class="index === 0?'mui-active' : ''"                     
-                   :href=" '#content' +  index">
-                   {{ item.key }}
-                </a>
+                   :data-index="index"
+                   :href=" '#content' +  index">{{ item.key }}</a>
             </div>
         </div>
 
@@ -75,40 +75,11 @@ export default {
     return {
     	DateStr : "",
     	imgs:[],
-    	items:[
-    			{
-					key:"Hot",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Discount",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Staple food",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Drink",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Soups",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Sweets",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				},
-
-				{
-					key:"Other",value:[{img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}, {img:"logo.png",name:"Small steamed bun",sales:"454",rate:"100%",money:"6"}] 
-				}
-			]
+    	items:[]
     }		
   },
   methods : {
 	setDate () {
-		let self = this;
 		let date = new Date();
 		let year = date.getFullYear();
 		let money = money = date.getMonth() + 1;
@@ -116,7 +87,7 @@ export default {
 		let hour = date.getHours();
         let minute = date.getMinutes();
 
-        self.DateStr = `${year}-${money}-${day} ${hour}:${minute}`
+        this.DateStr = `${year}-${money}-${day} ${hour}:${minute}`
 	},
 	getBase64Img () {
 		for (var i = 0;i < this.items.length;i++) {
@@ -126,18 +97,28 @@ export default {
 	    		this.items[i].value[j].img = astroImage;
 	    	}
 	    }
+	},
+	getItemsData () {
+		 let self = this;
+		 wct.AjaxGet(wct.host + wct.api.menu + "10086",function(data){
+		 	 self.items = JSON.parse(data.result);
+			 self.getBase64Img();
+		 })
+	},
+	scrollToCategory (e) {
+		let id = $(e.event.target).attr("href");
+		let top = $(id).offset().top - 200; 
+		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,-top,300);
 	}
   },
   created () {
+    this.getItemsData();
 	this.setDate();
-	this.getBase64Img();
     mui.ready(function(){
     	mui('.mui-scroll-wrapper').scroll({
         	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006 
 		});
-    })
-    
-   
+    });
   }
 };
 </script>
