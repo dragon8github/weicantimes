@@ -20,7 +20,9 @@
 					 <div class="floor" v-for="(item,index) in items" :class="'floor-' + index">
 						 	<div class="floor-text">{{ item.key }}</div>
 					 		<ul class="floor-tables-ul">
-					 			<li class="floor-tables-ul-li" v-for="(item2,index2) in item.value">
+					 			<li class="floor-tables-ul-li" 
+					 				v-tap="{ methods:setState}"
+					 				v-for="(item2,index2) in item.value">
 					 				<div class="floor-tables-ul-li-div"></div>
 					 				<p class="floor-tables-ul-li-p">{{ item2.name }}</p>
 					 				<i class="iconfont" :class="getStateIco(item2.state)"></i>
@@ -68,7 +70,18 @@ export default {
 		 wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
 		 	 self.items = JSON.parse(data.result);
 		 })
+	},
+	setState (e) {
+		console.log(e);
 	}
+  },
+  sockets : {
+  	connect : function(){
+	  console.log('socket connected')
+	},
+  	client_menu : function(data){
+  		console.log("client_menu",data)
+  	}	
   },
   created () {
   	this.getItemsData();
@@ -77,111 +90,31 @@ export default {
 		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
 	 })
+	 this.$socket.emit("server_menu",{name:"test"});
   }
 };
 </script>
 
 <style lang="css" scoped>
-.mui-navigate-right:after, .mui-push-left:after, .mui-push-right:after{
-	color:#fff;
-}
-#desk--bakcground{
-	height: 100vh;
-	width: 100%;
-	background:url(../assets/images/banner.jpg) no-repeat 50% /cover;
-	-webkit-filter: blur(50px);   
-    -moz-filter: blur(50px);   
-    -ms-filter: blur(50px);   
-    -o-filter: blur(50px);   
-    filter: blur(50px);   
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);  
-    position: absolute;
-    z-index: 1;
-    top: 0;
-}
-#desk-inner{
-	position: relative;
-	z-index: 3;
-	height: 100vh;
-	background: transparent;
-	color: #fff !important;
-}
-.mui-table-view{
-	background: transparent;
-}
-ul{
-    /*overflow: hidden;*/
-    margin: 0;
-    padding: 0;
-}
-.not-function {
-	background: transparent;
-    font-size: 16px;
-}
-.floor{
-    font-size: 16px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-.floor-text{	
-	text-indent: 15px;
-    line-height: 45px;
-}
-.floor-ico{
-    line-height: 60px;
-    width: 100%;
-    margin: auto;
-    text-align: center;
-}
-.floor-ico span{
-	padding:0 3px;	
-}
-.floor-ico .iconfont{
-    padding: 0.33em 0.37em;
-    margin-right: 5px;
-}
-.iconfont-eated{
-	background: darkorange;
-}
-.iconfont-seize{
-	background: saddlebrown;
-}
-.iconfont-destine{
-	background: mediumvioletred;
-}
-.iconfont-recommended{
-	background: lightsalmon;
-}
-.floor-tables-ul-li{
-    float: left;
-    min-width: 80px;
-    margin: auto;
-    margin: 0px 11px;
-    position: relative;
-}
-.floor-tables-ul-li-div{
-	background:rgba(0,0,0,.2) url("../assets/images/logo.png") no-repeat center 9px /  50px 43px;
-	height: 58px;
-    border-radius: 4px;
-}
-.floor-tables-ul-li-p{
-	text-align: center;
-    margin-top: 5px;
-    font-size: 15px;
-	color: #fff;
-}
-.mui-table-view-cell>a:not(.mui-btn).mui-active{
-	background: #ccc;
-}
-.floor-tables-ul .iconfont{
-    position: absolute;
-    top: -17px;
-    right: -13px;
-    padding: 0.33em 0.37em;
-    background: transparent;
-    font-size: 20px;
-}
-.floor-tables-ul .iconfont.icon-tuijian{
-	font-weight: bold;
-}
+.mui-navigate-right:after,.mui-push-left:after,.mui-push-right:after{color:#fff}
+#desk--bakcground{height:100vh;width:100%;background:url(../assets/images/banner.jpg) no-repeat 50%/cover;-webkit-filter:blur(50px);-moz-filter:blur(50px);-ms-filter:blur(50px);-o-filter:blur(50px);filter:blur(50px);filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);position:absolute;z-index:1;top:0}
+#desk-inner{position:relative;z-index:3;height:100vh;background:0 0;color:#fff!important}
+.mui-table-view{background:0 0}
+ul{margin:0;padding:0}
+.not-function{background:0 0;font-size:16px}
+.floor{font-size:16px;overflow:hidden;margin-bottom:10px}
+.floor-text{text-indent:15px;line-height:45px}
+.floor-ico{line-height:60px;width:100%;margin:auto;text-align:center}
+.floor-ico span{padding:0 3px}
+.floor-ico .iconfont{padding:.33em .37em;margin-right:5px}
+.iconfont-eated{background:#ff8c00}
+.iconfont-seize{background:#8b4513}
+.iconfont-destine{background:#c71585}
+.iconfont-recommended{background:#ffa07a}
+.floor-tables-ul-li{float:left;min-width:80px;margin:auto;margin:0 11px;position:relative}
+.floor-tables-ul-li-div{background:rgba(0,0,0,.2) url(../assets/images/logo.png) no-repeat center 9px/50px 43px;height:58px;border-radius:4px}
+.floor-tables-ul-li-p{text-align:center;margin-top:5px;font-size:15px;color:#fff}
+.mui-table-view-cell>a:not(.mui-btn).mui-active{background:#ccc}
+.floor-tables-ul .iconfont{position:absolute;top:-17px;right:-13px;padding:.33em .37em;background:0 0;font-size:20px}
+.floor-tables-ul .iconfont.icon-tuijian{font-weight:700}
 </style>

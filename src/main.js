@@ -10,8 +10,11 @@ import fastclick from 'fastclick'	 	//解决手机端 click 点击延迟
 import zepto from 'webpack-zepto' 	 	//jquery、zepto
 import store from './vuex/store'	 	// vuex相关
 import router from './router'		 	//路由相关
+import VueSocketio from 'vue-socket.io';
+
 
 Vue.use(vueTap);
+Vue.use(VueSocketio, 'http://localhost:8090');
 window.zepto = zepto;
 window.$ = zepto   					   //zepto
 window.router = router;				   //路由文件

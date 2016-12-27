@@ -2,11 +2,15 @@
 const express = require('express');
 const fs = require('fs');
 const url = require('url');
+const sio = require('socket.io');
 
 let app = express();
 let port = 8090;
 let result = "";
 
+app.get('',function(req,res){
+	res.end(fs.readFileSync('./index.html','utf8'));
+})
 
 // all get post
 app.all('/ajax/menu/:id', function (req, res) {
@@ -37,4 +41,23 @@ app.all('/ajax/desk/:id', function (req, res) {
 
 var server = app.listen(port, function () {
 	console.log("Server Start!");
+})
+
+let socket = sio.listen(server);
+
+let menu_data = "";
+socket.on('connection',function(socket){
+	console.log("socket start!");
+
+	socket.send("hello world");
+
+
+	socket.on("server_menu",function(menu_data){
+		// update of the json file
+		console.log("the server is get client myevent:",menu_data);
+
+		socket.emit('client_menu',menu_data);
+
+	})
+
 })
