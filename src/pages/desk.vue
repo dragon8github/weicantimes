@@ -12,10 +12,10 @@
 					    </li>
 					 </ul>  
 					 <div class="floor-ico">
-				 		<span><i class="iconfont icon-user iconfont-eated"></i><span class="floor-ico-text">Eated</span></span>
-				 		<span><i class="iconfont icon-lock iconfont-seize"></i><span class="floor-ico-text">Seize</span></span>
-				 		<span><i class="iconfont icon-yuding iconfont-destine"></i><span class="floor-ico-text">Destine</span></span>
-				 		<span><i class="iconfont icon-tuijian iconfont-recommended"></i><span class="floor-ico-text">Recommended</span></span>
+				 		<span><i class="iconfont icon-Eated iconfont-eated"></i><span class="floor-ico-text">Eated</span></span>
+				 		<span><i class="iconfont icon-Seize iconfont-seize"></i><span class="floor-ico-text">Seize</span></span>
+				 		<span><i class="iconfont icon-Destine iconfont-destine"></i><span class="floor-ico-text">Destine</span></span>
+				 		<span><i class="iconfont icon-Recommended iconfont-recommended"></i><span class="floor-ico-text">Recommended</span></span>
 				 	</div> 
 					 <div class="floor" v-for="(item,index) in items" :class="'floor-' + index">
 						 	<div class="floor-text">{{ item.key }}</div>
@@ -30,12 +30,16 @@
 					 		</ul>
 					 </div> 
 				 </div>
-			  </div> 
+			  </div>
+			<mydeskinput></mydeskinput>
 		 </div>
 	 </div>
 </template>
 
 <script>
+
+import mydeskinput from '../components/deskinput.vue'
+
 export default {
 
   name: 'desk',
@@ -45,24 +49,27 @@ export default {
     	items:[]
     };
   },
+   components :{
+        mydeskinput
+  },
   methods : {
   	getStateIco (icoType) {
   		switch(+icoType)
 		{
 			case 0:
-			  return "icon-user"
+			  return "icon-eated"
 			  break;
 			case 1:
-			  return "icon-lock"
+			  return "icon-seize"
 			  break;
 			case 2:
-			  return "icon-yuding"
+			  return "icon-destine"
 			  break;
 			case 3:
-			  return "icon-tuijian"
+			  return "icon-recommended"
 			  break;
 			default:
-			  return "icon-tuijian"
+			  return "icon-recommended"
 		}
   	},  	
 	getItemsData () {
@@ -70,9 +77,16 @@ export default {
 		 wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
 		 	 self.items = JSON.parse(data.result);
 		 })
-	},
-	setState (e) {
-		console.log(e);
+	}
+	,setState (e) {
+		layer.open({
+            type:"1",
+			content:$("#deskinput").html(),
+            style:"background:rgba(0,0,0,.5);width:75%;max-width:360px;",
+            shade: 'background-color:transparent',
+            className:"desk_layer",
+            closeBtn:"2"
+		})
 	}
   },
   sockets : {
@@ -117,4 +131,6 @@ ul{margin:0;padding:0}
 .mui-table-view-cell>a:not(.mui-btn).mui-active{background:#ccc}
 .floor-tables-ul .iconfont{position:absolute;top:-17px;right:-13px;padding:.33em .37em;background:0 0;font-size:20px}
 .floor-tables-ul .iconfont.icon-tuijian{font-weight:700}
+
+
 </style>
