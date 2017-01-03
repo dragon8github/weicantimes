@@ -21,7 +21,7 @@
 						 	<div class="floor-text">{{ item.key }}</div>
 					 		<ul class="floor-tables-ul">
 					 			<li class="floor-tables-ul-li" 
-					 				v-tap="{ methods:setState}"
+					 				v-tap="{ methods:setState,para1:index,para2:index2}"
 					 				v-for="(item2,index2) in item.value">
 					 				<div class="floor-tables-ul-li-div"></div>
 					 				<p class="floor-tables-ul-li-p">{{ item2.name }}</p>
@@ -41,9 +41,7 @@
 import mydeskinput from '../components/deskinput.vue'
 
 export default {
-
   name: 'desk',
-
   data () {
     return {
     	items:[]
@@ -54,31 +52,15 @@ export default {
   },
   methods : {
   	getStateIco (icoType) {
-  		switch(+icoType)
-		{
-			case 0:
-			  return "icon-eated"
-			  break;
-			case 1:
-			  return "icon-seize"
-			  break;
-			case 2:
-			  return "icon-destine"
-			  break;
-			case 3:
-			  return "icon-recommended"
-			  break;
-			default:
-			  return "icon-recommended"
-		}
+  		return `icon-${icoType}`;
   	},  	
 	getItemsData () {
 		 let self = this;
 		 wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
 		 	 self.items = JSON.parse(data.result);
 		 })
-	}
-	,setState (e) {
+	},
+	setState (e) {
 		layer.open({
             type:"1",
 			content:$("#deskinput").html(),
@@ -87,6 +69,26 @@ export default {
             className:"desk_layer",
             closeBtn:"2"
 		})
+		$(".desk_layer .desk_shurufa-ul .desk_shurufa_liNum").bind("click",this.setInputNum);
+		$(".desk_layer .menu-input-submit").bind("click",{index1:e.para1,index2:e.para2},this.submitInput);
+	},
+	setInputNum (e) {
+		let input = $(".desk_layer #meun-input").val()
+		let n = e.target.innerText;
+		if(n === "A/C") {
+			$(".desk_layer #meun-input").val("");
+		} else {
+			$(".desk_layer #meun-input").val(input  + n);
+		}
+	},
+	submitInput (e) {
+		let index1 = e.data.index1;
+		let index2 = e.data.index2;
+		let state = e.target.innerText;
+		let num = $(".desk_layer #meun-input").val();
+		this.items[index1].value[index2].num = num
+		this.items[index1].value[index2].state = state
+		layer.closeAll();
 	}
   },
   sockets : {

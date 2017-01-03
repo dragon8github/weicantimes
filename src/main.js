@@ -20,7 +20,7 @@ window.$ = zepto   					   //zepto
 window.router = router;				   //路由文件
 window.mui = require('js/mui.min.js')  //UI框架的核心js
 window.layer = require('js/layer_mobile/layer');
-
+fastclick.attach(document.body)
 
 const app = new Vue({
 	router,
