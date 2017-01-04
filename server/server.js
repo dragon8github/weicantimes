@@ -55,9 +55,11 @@ socket.on('connection',function(socket){
 	socket.on("server_menu",function(menu_data){
 		// update of the json file
 		console.log("the server is get client myevent:",menu_data);
-
+        fs.writeFile('../data/desk.json',menu_data,function(err){
+            if(err) console.error("文件写入失败");
+            else console.log("文件写入成功");
+        });
 		socket.emit('client_menu',menu_data);
-
 	})
 
 })
