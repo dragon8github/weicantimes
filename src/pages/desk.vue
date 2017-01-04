@@ -97,9 +97,8 @@ export default {
 	  console.log('socket connected')
 	},
   	client_menu : function(data){
-  		console.log("client_menu",data)
   		this.items = JSON.parse(data);
-  	}	
+  	}
   },
   created () {
   	this.getItemsData();

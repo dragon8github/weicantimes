@@ -107,8 +107,11 @@ export default {
 	},
 	scrollToCategory (e) {
 		let id = $(e.event.target).attr("href");
-		let top = $(id).offset().top - 200; 
-		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,-top,300);
+		let top = $(id).offset().top - 200;
+		let y = mui('#segmentedControlContents .mui-scroll-wrapper').scroll().y;
+		top = y - top;
+		console.log(top)
+		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,top,300);
 	}
   },
   created () {
