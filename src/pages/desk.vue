@@ -97,6 +97,7 @@ export default {
 	  console.log('socket connected')
 	},
   	client_menu : function(data){
+  		console.log("the client get server message");
   		this.items = JSON.parse(data);
   	}
   },
@@ -107,6 +108,9 @@ export default {
 		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
 	 })
+	 this.$options.sockets.socket_test = (data) => {
+	 	console.log(data);
+	 }
   }
 };
 </script>

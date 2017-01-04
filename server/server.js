@@ -53,6 +53,11 @@ socket.on('connection',function(socket){
             if(err) console.error("文件写入失败");
             else console.log("文件写入成功");
         });
-		socket.emit('client_menu',menu_data);
+        sendClientData(menu_data);
 	})
 })
+
+let sendClientData = (data) => {
+    socket.emit('client_menu',data);
+    socket.emit("socket_test","socket_test");
+}

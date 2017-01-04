@@ -13,7 +13,7 @@
     "socket.io": "^1.7.2",
     "vue": "^2.1.0",
     "vue-router": "^2.1.1",
-    "vue-socket.io": "^2.0.1",
+    "vue-socket.io": "^2.1.0",
     "webpack-zepto": "0.0.1"
   },
   "devDependencies": {
