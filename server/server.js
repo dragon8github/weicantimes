@@ -44,8 +44,6 @@ var server = app.listen(port, function () {
 })
 
 let socket = sio.listen(server);
-
-let menu_data = "";
 socket.on('connection',function(socket){
 	console.log("socket start!");
 	socket.on("server_menu",function(menu_data){
@@ -56,8 +54,6 @@ socket.on('connection',function(socket){
         sendClientData(menu_data);
 	})
 })
-
 let sendClientData = (data) => {
     socket.emit('client_menu',data);
-    socket.emit("socket_test","socket_test");
 }

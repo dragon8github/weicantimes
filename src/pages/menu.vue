@@ -111,7 +111,7 @@ export default {
 		let y = mui('#segmentedControlContents .mui-scroll-wrapper').scroll().y;
 		top = y - top;
 		console.log(top)
-		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,top,300);
+		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,top,0);
 	}
   },
   created () {
@@ -161,7 +161,7 @@ export default {
 .submitbutton{position:absolute;top:0;right:0;bottom:0;width:30%;background-color:#4cd964;color:#fff;text-align:center;text-decoration:none;font-size:16px;line-height:50px}
 .carticon{position:absolute;left:10px;width:50px;height:50px;box-sizing:border-box;border-radius:100%;box-shadow:0 -.082192rem .054795rem 0 rgba(0,0,0,.1);will-change:transform}
 .carticon::before{position:absolute;top:0;right:0;bottom:0;left:0;background:url(../assets/images/shop-cart.png) center no-repeat;background-size:50px;content:""}
-.carticon::after{position:absolute;right:-.123288rem;top:-.136986rem;line-height:1;background-color:#ff461d;color:#fff;border-radius:.328767rem;padding:.054795rem .136986rem;content:attr(attr-quantity);font-size:.273973rem}
+.carticon::after{position:absolute;right:2px;top:1px;line-height:1;background-color:#ff461d;color:#fff;border-radius:100%;padding:3px 6px;content:attr(attr-quantity);font-size:.273973rem}
 .carttotal{font-size:16px;line-height:16px;color:#fff;margin:0}
 .cartdelivery{color:#f5f5f5;font-size:.273973rem}
 </style>

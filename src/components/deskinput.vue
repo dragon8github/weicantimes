@@ -60,4 +60,5 @@
 .menu-input-Recommended{background:#ffa07a!important}
 .iconfont{font-size:20px;}
 .desk_shurufa-ul .desk_shurufa_zero{width: 43%;}
+.desk_shurufa-ul .desk_shurufa_reset{font-size:20px;}
 </style>
