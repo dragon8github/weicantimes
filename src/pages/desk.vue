@@ -6,8 +6,8 @@
                 <div class="mui-scroll">
 					<ul class="mui-table-view">
 					    <li class="mui-table-view-cell">
-					        <a class="mui-navigate-right">Number of Guests
-			        	    <span class="not-function mui-badge mui-badge-danger">Please Choose</span>
+					        <a class="mui-navigate-right" v-tap="{methods:openPicker}">Number of Guests
+			        	    <span class="not-function mui-badge mui-badge-danger chooseNum">Please Choose</span>
 					        </a>
 					    </li>
 					 </ul>  
@@ -39,18 +39,58 @@
 <script>
 
 import mydeskinput from '../components/deskinput.vue'
-
 export default {
   name: 'desk',
   data () {
     return {
-    	items:[]
+    	items:[],
     };
   },
    components :{
         mydeskinput
   },
   methods : {
+  	openPicker () {
+		var userPicker = new mui.PopPicker();
+		userPicker.setData([{
+			value: '1',
+			text: '1人'
+		}, {
+		value: '2',
+			text: '2人'
+		}, {
+			value: '3',
+			text: '3人'
+		}, {
+			value: '4',
+			text: '4人'
+		}, {
+			value: '5',
+			text: '5人'
+		}, {
+			value: '6',
+			text: '6人'
+		}, {
+			value: '7',
+			text: '7人'
+		}, {
+			value: '8',
+			text: '8人'
+		}, {
+		value: '9',
+			text: '9人'
+		}, {
+			value: '10',
+			text: '10人以上'
+		}]);
+		userPicker.show(function(items) {
+			let value = items[0].value;
+			let text = items[0].text;
+			$(".chooseNum").text(text);
+			//返回 false 可以阻止选择框的关闭
+			//return false;
+		});
+  	},
   	getStateIco (icoType) {
   		return `icon-${icoType}`;
   	},  	
@@ -59,6 +99,14 @@ export default {
 		 wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
 		 	 self.items = JSON.parse(data.result);
 		 })
+	},
+	goMenu () {
+		router.push("menu")
+		layer.closeAll();
+	},
+	goBalance () {
+		router.push("balance")
+		layer.closeAll();
 	},
 	setState (e) {
 		layer.open({
@@ -71,6 +119,8 @@ export default {
 		})
 		$(".desk_layer .desk_shurufa-ul .desk_shurufa_liNum").bind("click",this.setInputNum);
 		$(".desk_layer .menu-input-submit").bind("click",{index1:e.para1,index2:e.para2},this.submitInput);
+		$(".goMenu").bind("click",this.goMenu);
+		$(".goBalance").bind("click",this.goBalance);
 	},
 	setInputNum (e) {
 		let input = $(".desk_layer #meun-input").val()
@@ -103,10 +153,16 @@ export default {
   },
   created () {
   	this.getItemsData();
+
+
   	 mui.ready(function(){
 		mui('.mui-scroll-wrapper').scroll({
 		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
+		require("css/mui.picker.css")
+		require("css/mui.poppicker.css")
+		require("js/mui.picker.js")
+		require("js/mui.poppicker.js")
 	 })
 
   }

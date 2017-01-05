@@ -34,6 +34,8 @@
                     <i class="iconfont icon-Recommended iconfont-recommended"></i>
                 </li>
             </ul>
+            <button type="button" class="mui-btn mui-btn-success mui-btn-block goMenu">去点菜</button>
+            <button type="button" class="mui-btn mui-btn-danger mui-btn-block goBalance">去结账</button>
         </div>
     </div>
 </template>
@@ -45,6 +47,7 @@
 </script>
     
 <style lang="css" scoped>
+    .mui-btn-block{    width: 90%;        margin: 20px auto;}
 #deskinput{display:none}
 #deskinput-inner{width:100%;overflow:hidden;text-align:center}
 .desk_shurufa-ul{margin:0;padding:0;margin-bottom:15px}
