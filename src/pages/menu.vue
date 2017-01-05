@@ -7,7 +7,7 @@
 				<!-- header  -->
 				<header id="header" class="mui-bar mui-bar-nav">
 					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" v-tap="{methods:backDesk}">
-						<span class="menu_back">Back</span>
+						<span class="menu_back">Desk</span>
 					</a>
 					<a v-tap="{methods:CanvasShow}" class="mui-icon mui-icon-bars mui-pull-right"></a>
 				</header>
@@ -148,6 +148,9 @@ export default {
     	mui('.mui-scroll-wrapper').scroll({
         	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006 
 		});
+		$("#offCanvasHide").bind("click",function(){
+			 mui('#menu_main').offCanvas('close');
+		})
     });
   }
 };
