@@ -12,10 +12,8 @@ import zepto from 'webpack-zepto' 	 	//jquery、zepto
 import store from './vuex/store'	 	// vuex相关
 import router from './router'		 	//路由相关
 import VueSocketio from 'vue-socket.io';
-// import socketio from 'socket.io';
 
 Vue.use(vueTap);
-// Vue.use(VueSocketio, socketio('http://localhost:8090'));
 Vue.use(VueSocketio, 'http://localhost:8090');
 window.zepto = zepto;
 window.$ = zepto   					   //zepto

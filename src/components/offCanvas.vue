@@ -66,7 +66,7 @@
     }
 </script>
 <style lang="css" scoped>
-    .offcanvas-icon{font-size:30px;margin-right: 5px;}
+    .offcanvas-icon{font-size:27px;margin-right: 5px;}
     .icon-guanji{font-size:30px;}
     .gongsixinxi{margin: 15px;}
     .footer{text-align: center;margin:50px auto;}
