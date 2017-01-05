@@ -8,6 +8,7 @@ let app = express();
 let port = 8090;
 let result = "";
 
+// the test html page
 app.get('',function(req,res){
 	res.end(fs.readFileSync('./index.html','utf8'));
 })
@@ -37,8 +38,6 @@ app.all('/ajax/desk/:id', function (req, res) {
 	res.end(JSON.stringify(result));
 })
 
-
-
 var server = app.listen(port, function () {
 	console.log("Server Start!");
 })
@@ -46,7 +45,8 @@ var server = app.listen(port, function () {
 let socket = sio.listen(server);
 socket.on('connection',function(socket){
 	console.log("socket start!");
-	socket.on("server_menu",function(menu_data){
+
+    socket.on("server_menu",function(menu_data){
         fs.writeFile('../data/desk.json',menu_data,function(err){
             if(err) console.error("文件写入失败");
             else console.log("文件写入成功");

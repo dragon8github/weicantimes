@@ -1,5 +1,12 @@
 (function(){
 
+    /**
+     * demo
+     * wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
+        self.items = JSON.parse(data.result);
+       })
+     * */
+
     var wct = window.wct = window.wct || {};
 
     wct.host = "http://localhost:8090";

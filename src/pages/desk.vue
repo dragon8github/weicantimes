@@ -12,10 +12,10 @@
 					    </li>
 					 </ul>  
 					 <div class="floor-ico">
-				 		<span><i class="iconfont icon-Eated iconfont-eated"></i><span class="floor-ico-text">Eated</span></span>
-				 		<span><i class="iconfont icon-Seize iconfont-seize"></i><span class="floor-ico-text">Seize</span></span>
-				 		<span><i class="iconfont icon-Destine iconfont-destine"></i><span class="floor-ico-text">Destine</span></span>
-				 		<span><i class="iconfont icon-Recommended iconfont-recommended"></i><span class="floor-ico-text">Recommended</span></span>
+				 		<span><i class="iconfont icon-Eated iconfont-eated"></i><span class="floor-ico-text">Eating</span></span>
+				 		<span><i class="iconfont icon-Seize iconfont-seize"></i><span class="floor-ico-text">Seizeing</span></span>
+				 		<span><i class="iconfont icon-Destine iconfont-destine"></i><span class="floor-ico-text">Destined</span></span>
+				 		<span><i class="iconfont icon-Recommended iconfont-recommended"></i><span class="floor-ico-text">Recommend</span></span>
 				 	</div> 
 					 <div class="floor" v-for="(item,index) in items" :class="'floor-' + index">
 						 	<div class="floor-text">{{ item.key }}</div>
@@ -25,7 +25,7 @@
 					 				v-for="(item2,index2) in item.value">
 					 				<div class="floor-tables-ul-li-div"></div>
 					 				<p class="floor-tables-ul-li-p">{{ item2.name }}</p>
-					 				<i class="iconfont" :class="getStateIco(item2.state)"></i>
+					 				<i class="iconfont" :class="'icon-' + item2.state"></i>
 					 			</li>
 					 		</ul>
 					 </div> 
@@ -46,54 +46,20 @@ export default {
     	items:[],
     };
   },
-   components :{
+  components :{
         mydeskinput
   },
   methods : {
   	openPicker () {
 		var userPicker = new mui.PopPicker();
-		userPicker.setData([{
-			value: '1',
-			text: '1人'
-		}, {
-		value: '2',
-			text: '2人'
-		}, {
-			value: '3',
-			text: '3人'
-		}, {
-			value: '4',
-			text: '4人'
-		}, {
-			value: '5',
-			text: '5人'
-		}, {
-			value: '6',
-			text: '6人'
-		}, {
-			value: '7',
-			text: '7人'
-		}, {
-			value: '8',
-			text: '8人'
-		}, {
-		value: '9',
-			text: '9人'
-		}, {
-			value: '10',
-			text: '10人以上'
-		}]);
+		userPicker.setData([{value:'1',text:'1人'},{value:'2',text:'2人'},{value:'3',text:'3人'},{value:'4',text:'4人'},{value:'5',text:'5人'},{value:'6',text:'6人'},{value:'7',text:'7人'},{value:'8',text:'8人'},{value:'9',text:'9人'},{value:'10',text:'10人以上'}]);
 		userPicker.show(function(items) {
 			let value = items[0].value;
 			let text = items[0].text;
 			$(".chooseNum").text(text);
-			//返回 false 可以阻止选择框的关闭
-			//return false;
+			//return false; //返回 false 可以阻止选择框的关闭
 		});
   	},
-  	getStateIco (icoType) {
-  		return `icon-${icoType}`;
-  	},  	
 	getItemsData () {
 		 let self = this;
 		 wct.AjaxGet(wct.host + wct.api.desk + "10086",function(data){
@@ -117,10 +83,10 @@ export default {
             className:"desk_layer",
             closeBtn:"2"
 		})
-		$(".desk_layer .desk_shurufa-ul .desk_shurufa_liNum").bind("click",this.setInputNum);
-		$(".desk_layer .menu-input-submit").bind("click",{index1:e.para1,index2:e.para2},this.submitInput);
-		$(".goMenu").bind("click",this.goMenu);
-		$(".goBalance").bind("click",this.goBalance);
+		$(".desk_layer .desk_shurufa-ul .desk_shurufa_liNum").bind("tap",this.setInputNum);
+		$(".desk_layer .menu-input-submit").bind("tap",{index1:e.para1,index2:e.para2},this.submitInput);
+		$(".desk_layer .goMenu").bind("tap",this.goMenu);
+		$(".desk_layer .goBalance").bind("tap",this.goBalance);
 	},
 	setInputNum (e) {
 		let input = $(".desk_layer #meun-input").val()
@@ -128,7 +94,7 @@ export default {
 		if(n === "A/C") {
 			$(".desk_layer #meun-input").val("");
 		} else {
-			$(".desk_layer #meun-input").val(input  + n);
+			$(".desk_layer #meun-input").val(input + n);
 		}
 	},
 	submitInput (e) {
@@ -143,27 +109,26 @@ export default {
 	}
   },
   sockets : {
-  	connect : function(){
+  	connect () {
 	  console.log('socket connected')
 	},
-  	client_menu : function(data){
+  	client_menu (data) {
   		console.log("the client get server message");
   		this.items = JSON.parse(data);
   	}
   },
   created () {
   	this.getItemsData();
-
   	 mui.ready(function(){
 		mui('.mui-scroll-wrapper').scroll({
 		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 		});
+		/* 以下四个东西仅仅是为了实现poppicker */
 		require("css/mui.picker.css")
 		require("css/mui.poppicker.css")
 		require("js/mui.picker.js")
 		require("js/mui.poppicker.js")
 	 })
-
   }
 };
 </script>

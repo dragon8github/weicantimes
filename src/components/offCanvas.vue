@@ -6,13 +6,16 @@
                     <a class="mui-navigate-right">
                         <img class="mui-media-object mui-pull-left head-img" id="head-img" width="50px" style="margin-right: 10px;" :src="logo">
                         <div class="mui-media-body" style="margin-left: 20px;">
-                            <h3  style="color:#fff"><span id="username">Lee</span><span id="quit" class="mui-pull-right mui-h6" style="color:#fff;margin-right: 10px;display: block;height:70px;width: 100px;text-align: right;"><i class="iconfont icon-guanji"></i></span></h3>
+                            <h3  style="color:#fff">
+                                <span id="username">Lee</span>
+                                <span id="quit" v-tap="{methods:quit}" class="mui-pull-right mui-h6"><i class="iconfont icon-guanji"></i></span>
+                            </h3>
                             <p class='mui-ellipsis' style="color:#fff;overflow:visible"> 金额: ￥ 00.00</p>
                         </div>
                     </a>
                 </div>
                 <p style="margin: 15px;">
-                    <button id="offCanvasHide" type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
+                    <button id="offCanvasHide"  v-tap="{methods:offCanvasHide}"  type="button" class="mui-btn mui-btn-danger mui-btn-block" style="padding: 5px 20px;">关闭侧滑菜单</button>
                 </p>
                 <ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted">
                     <li class="mui-table-view-cell">
@@ -62,10 +65,29 @@
             return {
                 logo:require("assets/images/logo.png")
             }
+        },
+        methods:{
+            quit () {
+                var btnArray = ['否', '是'];
+				mui.confirm('你确定要退出？', '温馨提示', btnArray, function(e) {
+					if (e.index == 1){
+						router.push("login")
+					}
+				})
+            },
+            offCanvasHide () {
+                 mui('#menu_main').offCanvas('close');
+            }
+        },
+        mounted () {
+
         }
     }
 </script>
 <style lang="css" scoped>
+    #quit{
+        color:#fff;margin-right: 10px;display: block;height:70px;width: 100px;text-align: right
+    }
     .offcanvas-icon{font-size:27px;margin-right: 5px;}
     .icon-guanji{font-size:30px;}
     .gongsixinxi{margin: 15px;}

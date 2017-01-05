@@ -47,7 +47,7 @@
 </script>
     
 <style lang="css" scoped>
-    .mui-btn-block{    width: 90%;        margin: 20px auto;}
+    .mui-btn-block{    width: 90%;        margin: 10px auto;}
 #deskinput{display:none}
 #deskinput-inner{width:100%;overflow:hidden;text-align:center}
 .desk_shurufa-ul{margin:0;padding:0;margin-bottom:15px}

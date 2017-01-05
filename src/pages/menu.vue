@@ -141,6 +141,11 @@ export default {
 		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,top,0);
 	}
   },
+  sockets : {
+  	connect () {
+	  console.log('socket connected')
+	}
+  },
   created () {
     this.getItemsData();
 	this.setDate();
@@ -149,20 +154,6 @@ export default {
 			mui('.mui-scroll-wrapper').scroll({
 				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 			});
-			$("#offCanvasHide").bind("click",function(){
-				 mui('#menu_main').offCanvas('close');
-			})
-			//退出登录
-			$("#quit").bind("tap", function()
-			{
-				var btnArray = ['否', '是'];
-				mui.confirm('你确定要退出？', '温馨提示', btnArray, function(e) {
-					if (e.index == 1)
-					{
-						router.push("login")
-					}
-				})
-			})
     	},1)
     });
   }
