@@ -49,7 +49,7 @@
 														</p>
 														<p class="money">
 															<span class="money-left">$</span><span class="money-right">{{ item2.money }}</span>
-															<i class="menu-btn menu-btn-add iconfont icon-icontianjia01"></i>
+															<i v-tap="{methods:addCart}" class="menu-btn menu-btn-add iconfont icon-icontianjia01"></i>
 															<span class="menu-input">1</span>
 															<i class="menu-btn menu-btn-sub iconfont icon-tubiao"></i>
 														</p>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="cartfooter" style="z-index: 11;">
-						<span class="carticon" attr-quantity="1"></span>
+						<span id="cart_carticon" class="carticon" :attr-quantity="quantity"></span>
 						<div style="padding-top:13px;">
 							<p class="carttotal">
 								¥8
@@ -82,16 +82,18 @@
 	</div>
 
 </template>
-
 <script>
 import offcanvas from '../components/offCanvas.vue'
+import funParabola from 'js/funParabola'
+
 export default {
   name: 'menu',
   data () {
     return {
     	DateStr : "",
     	imgs:[],
-    	items:[]
+    	items:[],
+    	quantity:1
     }		
   },
   components:{
@@ -125,6 +127,10 @@ export default {
 	    	}
 	    }
 	},
+	addCart (e) {
+		var parabola = funParabola($(e.event.target)[0],$("#cart_carticon")[0]);
+		parabola.init();
+	},
 	getItemsData () {
 		 let self = this;
 		 wct.AjaxGet(wct.host + wct.api.menu + "10086",function(data){
@@ -137,7 +143,6 @@ export default {
 		let top = $(id).offset().top - 200;
 		let y = mui('#segmentedControlContents .mui-scroll-wrapper').scroll().y;
 		top = y - top;
-		console.log(top)
 		mui('#segmentedControlContents .mui-scroll-wrapper').scroll().scrollTo(0,top,0);
 	}
   },
@@ -156,6 +161,7 @@ export default {
 			});
     	},1)
     });
+
   }
 };
 </script>

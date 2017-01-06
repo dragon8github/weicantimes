@@ -90,7 +90,7 @@
     }
     .offcanvas-icon{font-size:27px;margin-right: 5px;}
     .icon-guanji{font-size:30px;}
-    .gongsixinxi{margin: 15px;}
+    .gongsixinxi{margin:20px;}
     .footer{text-align: center;margin:50px auto;}
     html,body
     {
