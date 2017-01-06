@@ -128,7 +128,18 @@ export default {
 	    }
 	},
 	addCart (e) {
-		var parabola = funParabola($(e.event.target)[0],$("#cart_carticon")[0]);
+		// 获取当前元素、元素的位置并且克隆。将元素插入到最外层，以免被overflow:hidden影响了
+		let clone_obj = $(e.event.target).clone();
+		let clone_obj_top = $(e.event.target).offset().top;
+		let clone_obj_left= $(e.event.target).offset().left;
+		clone_obj.css({
+			"position":"absolute",
+			"left":clone_obj_left,
+			"top":clone_obj_top,
+			"z-index":"19930710"
+		});
+		$("#menu_main").append(clone_obj);
+		var parabola = funParabola(clone_obj[0],$("#cart_carticon")[0]);
 		parabola.init();
 	},
 	getItemsData () {
@@ -167,6 +178,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 .mui-bar-nav{background: transparent;box-shadow: 0 0 0;}
 a.mui-action-back.mui-icon.mui-icon-left-nav.mui-pull-left,a.mui-icon.mui-icon-bars.mui-pull-right{color:#fff;}
 .menu_back{color:#fff;font-size:20px}

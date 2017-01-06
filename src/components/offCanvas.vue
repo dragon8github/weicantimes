@@ -52,7 +52,7 @@
                 <div  class="footer">
                     <div class="container">
                         <p>企业合作 | 合作事宜 | 版权投诉</p>
-                        <p class="gongsixinxi">粤ICP备12345678. © 2009-2016 微餐时代. Powered by Lee.</p>
+                        <p class="gongsixinxi">粤ICP备12345678. © 2009-2016  微餐时代. Powered by Lee.</p>
                     </div>
                 </div>
             </div>
