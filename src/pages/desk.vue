@@ -12,10 +12,10 @@
 					    </li>
 					 </ul>  
 					 <div class="floor-ico">
-				 		<span><i class="iconfont icon-Eated iconfont-eated"></i><span class="floor-ico-text">Eating</span></span>
-				 		<span><i class="iconfont icon-Seize iconfont-seize"></i><span class="floor-ico-text">Seizeing</span></span>
-				 		<span><i class="iconfont icon-Destine iconfont-destine"></i><span class="floor-ico-text">Destined</span></span>
-				 		<span><i class="iconfont icon-Recommended iconfont-recommended"></i><span class="floor-ico-text">Recommend</span></span>
+				 		<span><i class="iconfont icon-Eated iconfont-eated"></i><span class="floor-ico-text">用餐</span></span>
+				 		<span><i class="iconfont icon-Seize iconfont-seize"></i><span class="floor-ico-text">占位</span></span>
+				 		<span><i class="iconfont icon-Destine iconfont-destine"></i><span class="floor-ico-text">预定</span></span>
+				 		<span><i class="iconfont icon-Recommended iconfont-recommended"></i><span class="floor-ico-text">推荐</span></span>
 				 	</div> 
 					 <div class="floor" v-for="(item,index) in items" :class="'floor-' + index">
 						 	<div class="floor-text">{{ item.key }}</div>
@@ -157,15 +157,15 @@ export default {
 ul{margin:0;padding:0}
 .not-function{background:0 0;font-size:16px}
 .floor{font-size:16px;overflow:hidden;margin-bottom:10px}
-.floor-text{text-indent:15px;line-height:45px}
-.floor-ico{line-height:60px;width:100%;margin:auto;text-align:center}
-.floor-ico span{padding:0 3px}
+.floor-text{text-indent:15px;margin: 0 auto 20px;}
+.floor-ico{width: 100%;	margin: 30px auto;	text-align: center;}
+.floor-ico span{padding:0 3px;    font-size: 16px;}
 .floor-ico .iconfont{padding:.33em .37em;margin-right:5px}
 .iconfont-eated{background:#ff8c00}
 .iconfont-seize{background:#8b4513}
 .iconfont-destine{background:#c71585}
 .iconfont-recommended{background:#ffa07a}
-.floor-tables-ul-li{float:left;min-width:80px;margin:auto;margin:0 11px;position:relative}
+.floor-tables-ul-li{float:left;min-width:70px;margin:0 11px;position:relative;width:19%;}
 .floor-tables-ul-li-div{background:rgba(0,0,0,.2) url(../assets/images/logo.png) no-repeat center 9px/50px 43px;height:58px;border-radius:4px}
 .floor-tables-ul-li-p{text-align:center;margin-top:5px;font-size:15px;color:#fff}
 .mui-table-view-cell>a:not(.mui-btn).mui-active{background:#ccc}

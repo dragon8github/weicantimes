@@ -110,9 +110,7 @@ export default {
         this.DateStr = `${year}-${money}-${day} ${hour}:${minute}`
 	},
 	CanvasShow () {
-		var Main = mui('#menu_main');//侧滑容器父节点
-		Main[0].classList.add('mui-scalable');//动画效果的类
-		Main.offCanvas().refresh();//绑定动画效果
+		let Main = mui('#menu_main');//侧滑容器父节点
 		Main.offCanvas('show');
 	},
 	backDesk () {
@@ -139,15 +137,19 @@ export default {
 			"z-index":"1"
 		});
 		$("#menu_main").append(clone_obj);
-		var parabola = funParabola(clone_obj[0],$("#cart_carticon")[0]);
+		var parabola = funParabola(clone_obj[0],$("#cart_carticon")[0],{
+			speed: 206.67,
+			curvature:0.005,
+			complete:function(){
+				clone_obj.hide();
+				$(".carticon").css({"transform":"scale(1.3)"});
+				setTimeout(function(){
+					$(".carticon").css({"transform":"scale(1)"});
+				},200)
+			}
+		});
 		parabola.init();
-		setTimeout(function(){
-			clone_obj.hide();
-			$(".carticon").css({"transform":"scale(1.3)"});
-			setTimeout(function(){
-				$(".carticon").css({"transform":"scale(1)"});
-			},200)
-		},600)
+
 	},
 	getItemsData () {
 		 let self = this;
@@ -177,6 +179,9 @@ export default {
 			mui('.mui-scroll-wrapper').scroll({
 				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
 			});
+			let Main = mui('#menu_main');//侧滑容器父节点
+			Main[0].classList.add('mui-scalable');//动画效果的类
+			Main.offCanvas().refresh();//绑定动画效果
     	},1)
     });
 
@@ -185,7 +190,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
 .mui-bar-nav{background: transparent;box-shadow: 0 0 0;}
 a.mui-action-back.mui-icon.mui-icon-left-nav.mui-pull-left,a.mui-icon.mui-icon-bars.mui-pull-right{color:#fff;}
 .menu_back{color:#fff;font-size:20px}

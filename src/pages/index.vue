@@ -19,12 +19,12 @@
 		    </li>
 		    <li class="mui-table-view-cell">
 		        <a class="mui-navigate-right"><i class="iconfont icon-xiaoshifang"></i>Room reservation
-		        <span class="not-function mui-badge mui-badge-danger">This function is not open</span>
+		        <span class="not-function mui-badge mui-badge-danger">暂未开通服务</span>
 		        </a>
 		    </li>
 		     <li class="mui-table-view-cell">
 		        <a class="mui-navigate-right"><i class="iconfont icon-paidui"></i>Queue collar
-		        <span class="not-function mui-badge mui-badge-danger">This function is not open</span>
+		        <span class="not-function mui-badge mui-badge-danger">暂未开通服务</span>
 		        </a>
 		    </li>
 		</ul>
@@ -65,7 +65,7 @@ export default {
 .banner{
 	background:url("../assets/images/banner.jpg") no-repeat center center / cover;
 	width:100%;
-	min-height: 300px;	
+	min-height: 200px;
 	position:relative;
 }
 .banner-bottom{
@@ -85,7 +85,6 @@ export default {
 .banner-time{
 	float:right;
 	padding-right:15px;
-
 }
 .button-div{
 	margin:20px;
@@ -100,7 +99,5 @@ export default {
 .not-function {
 	background: transparent;
     color: #999;
-    font-size: 16px;
-
 }
 </style>
