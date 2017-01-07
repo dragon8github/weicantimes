@@ -1,6 +1,6 @@
 <template>
-	<div>
-		<div id="desk--bakcground"></div>
+	<div id="main-desk">
+		<div id="desk-bakcground"></div>
 		<div id="desk-inner">
 		    <div class="mui-scroll-wrapper">
                 <div class="mui-scroll">
@@ -78,7 +78,7 @@ export default {
 		layer.open({
             type:"1",
 			content:$("#deskinput").html(),
-            style:"background:rgba(0,0,0,.5);width:75%;max-width:360px;",
+            style:"background:rgba(0,0,0,.5);width:85%;max-width:360px;",
             shade: 'background-color:transparent',
             className:"desk_layer",
             closeBtn:"2"
@@ -120,9 +120,11 @@ export default {
   created () {
   	this.getItemsData();
   	 mui.ready(function(){
-		mui('.mui-scroll-wrapper').scroll({
-		    deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
-		});
+  	 	setTimeout(function(){
+			mui('.mui-scroll-wrapper').scroll({
+				deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+			});
+		},1)
 		/* 以下四个东西仅仅是为了实现poppicker */
 		require("css/mui.picker.css")
 		require("css/mui.poppicker.css")
@@ -135,7 +137,21 @@ export default {
 
 <style lang="css" scoped>
 .mui-navigate-right:after,.mui-push-left:after,.mui-push-right:after{color:#fff}
-#desk--bakcground{height:100vh;width:100%;background:url(../assets/images/banner.jpg) no-repeat 50%/cover;-webkit-filter:blur(50px);-moz-filter:blur(50px);-ms-filter:blur(50px);-o-filter:blur(50px);filter:blur(50px);filter:progid:DXImageTransform.Microsoft.Blur(PixelRadius=4, MakeShadow=false);position:absolute;z-index:1;top:0}
+#main-desk,#desk-bakcground::before{background:url(../assets/images/banner.jpg) no-repeat 70% / cover;}
+#desk-bakcground{
+	position: absolute;
+	margin: 0 auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: hsla(0,0%,100%,.25) border-box;
+	overflow: hidden;
+	border-radius: .3em;
+	box-shadow: 0 0 0 1px hsla(0,0%,100%,.3) inset, 0 .5em 1em rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+}
+#desk-bakcground::before{margin:-30px;content:'';position: absolute;top:0;right:0;bottom: 0;left:0;filter: blur(20px);-webkit-filter: blur(20px);}
 #desk-inner{position:relative;z-index:3;height:100vh;background:0 0;color:#fff!important}
 .mui-table-view{background:0 0}
 ul{margin:0;padding:0}

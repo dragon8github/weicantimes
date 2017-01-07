@@ -196,7 +196,7 @@ a.mui-action-back.mui-icon.mui-icon-left-nav.mui-pull-left,a.mui-icon.mui-icon-b
 .category-title{display:block;width:0;color:#999;font-size:.266667rem;white-space:nowrap;float:left;}
 .mui-col-xs-3,.mui-scroll{padding-bottom:100px}
 .menu{clear:both;overflow:hidden;height:480px}
-.banner{background:url(../assets/images/banner.jpg) no-repeat center center/cover;width:100%;height:200px;position:relative}
+.banner{background:url(../assets/images/desk.jpg) no-repeat center center/cover;width:100%;height:200px;position:relative}
 .banner-bottom{height:40px;line-height:40px;color:#fff;font-size:14px;position:absolute;bottom:0;background:rgba(0,0,0,.5);width:100%}
 .bannert-text{float:left;padding-left:15px}
 .banner-time{float:right;padding-right:15px}
