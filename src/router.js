@@ -20,7 +20,10 @@ const map = [
 	{path:'/menu',component:require('./pages/menu')},
 
 	/* balance */
-	{path:'/balance',component:require('./pages/balance')}
+	{path:'/balance',component:require('./pages/balance')},
+
+	/* cook */
+    {path:'/cook',component:require('./pages/cook')},
 
 ]	
 
